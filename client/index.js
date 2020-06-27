@@ -48,12 +48,15 @@ if ( appRoot ) {
 	let HydratedPageLayout = withSettingsHydration(
 		settingsGroup,
 		window.wcSettings
+	)( PageLayout );
 	const hydrateSettings =
-	window.wcSettings.preloadSettings &&
-	window.wcSettings.preloadSettings.general;
+		window.wcSettings.preloadSettings &&
+		window.wcSettings.preloadSettings.general;
 
 	if ( hydrateSettings ) {
-		HydratedPageLayout = withSettingsHydration( 'general', { general: window.wcSettings.preloadSettings.general, } )( HydratedPageLayout );
+		HydratedPageLayout = withSettingsHydration( 'general', {
+			general: window.wcSettings.preloadSettings.general,
+		} )( HydratedPageLayout );
 	}
 	if ( hydrateUser ) {
 		HydratedPageLayout = withCurrentUserHydration( hydrateUser )(
