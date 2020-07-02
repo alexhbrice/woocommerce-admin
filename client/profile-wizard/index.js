@@ -246,6 +246,9 @@ class ProfileWizard extends Component {
 				<div className="woocommerce-profile-wizard__container">
 					{ container }
 				</div>
+				<a
+					onClick={ ()=> this.skipProfiler() }
+				>Skip</a>
 			</Fragment>
 		);
 	}
